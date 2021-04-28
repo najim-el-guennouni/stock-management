@@ -23,7 +23,6 @@ class ProductCrudController extends AbstractCrudController
             AssociationField::new ('category'),
             NumberField::new ('price'),
             TextField::new ('description'),
-
             BooleanField::new ('status'),
 
         ];

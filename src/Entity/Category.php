@@ -6,11 +6,14 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
  */
-#[ApiResource]
+#[ApiResource(formats: ['json'])]
+#[ApiFilter(SearchFilter::class, properties: ['label' => 'ipartial' , 'id' => 'exact'])]
 class Category
 {
     /**

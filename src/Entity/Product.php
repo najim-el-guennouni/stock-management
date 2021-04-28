@@ -9,8 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
  */
-#[ApiResource]
-
+#[ApiResource(formats: ['json'])]
 class Product
 {
     /**
