@@ -27,6 +27,7 @@ class ProductCrudController extends AbstractCrudController
             ->setBasePath($this->getParameter("app.path.product_images"))
             ->onlyOnIndex(),
             AssociationField::new ('category'),
+            AssociationField::new ('publisher')->hideOnForm(),
             NumberField::new ('price'),
             TextField::new ('description'),
             TextareaField::new('imageFile',"Product image")

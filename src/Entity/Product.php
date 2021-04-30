@@ -71,6 +71,11 @@ class Product
      */
     private $updatedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="products")
+     */
+    private $publisher;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -172,6 +177,18 @@ class Product
     public function getImage()
     {
         return $this->image;
+    }
+
+    public function getPublisher(): ?User
+    {
+        return $this->publisher;
+    }
+
+    public function setPublisher(?User $publisher): self
+    {
+        $this->publisher = $publisher;
+
+        return $this;
     }
  
 }
