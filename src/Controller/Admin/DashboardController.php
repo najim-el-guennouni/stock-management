@@ -2,8 +2,8 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Product;
 use App\Entity\Category;
+use App\Entity\Product;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -13,10 +13,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
-     /**
-      * @Route(
-      *     "/{_locale}/admin",name="admin")
-      */
+    /**
+     * @Route(
+     *     "/{_locale}/admin",name="admin")
+     */
     public function index(): Response
     {
         return parent::index();
@@ -24,7 +24,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureDashboard(): Dashboard
     {
-        return Dashboard::new()
+        return Dashboard::new ()
             ->setTitle('Stock Management');
     }
 
@@ -33,9 +33,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Category', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Product', 'fas fa-clipboard-list', Product::class);
-        if($this->isGranted('ROLE_ADMIN')){
+        if ($this->isGranted('ROLE_ADMIN')) {
             yield MenuItem::linkToCrud('User', 'fas fa-user', User::class);
         }
     }
-    
+
 }
